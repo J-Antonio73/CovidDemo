@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="640,701" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="640,983" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="26">
       <x:String>System.Activities</x:String>
@@ -54,19 +54,19 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="CovidDemo Flowchart" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart sap2010:Annotation.AnnotationText="Description:&#xA;1.- Invoke GetUserInput workflow.&#xA;2.- Invoke ExtractStatsCovid workflow.&#xD;&#xA;3.- Invoke SendOutlookEmail workflow.&#xA;&#xA;Pre-conditions:The user stars this process.&#xA;&#xA;&#xA;Variables:&#xA;- str_Name: This variable contains the name that typed the user.&#xD;&#xA;- str_EmailAddress:  This variable contains the email address that typed the user.&#xD;&#xA;- str_News: This variable contains the news was extracted.&#xD;&#xA;- str_CasesStats: This variable contains the cases stats(active cases, fatal cases) was extracted.&#xD;&#xA;- str_TotalCases This variable contains the total cases was extracted.&#xD;&#xA;- str_State:  This variable contains the state code of state that typed the user.&#xD;&#xA;- str_MyState:  This variable contains the state that typed the user.&#xA;&#xA;" DisplayName="CovidDemo Flowchart" sap:VirtualizedContainerService.HintSize="634,918" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
-      <Variable x:TypeArguments="x:String" Name="Name" />
-      <Variable x:TypeArguments="x:String" Name="EmailAddress" />
-      <Variable x:TypeArguments="x:String" Name="News" />
-      <Variable x:TypeArguments="x:String" Name="CasesStats" />
-      <Variable x:TypeArguments="x:String" Name="TotalCases" />
-      <Variable x:TypeArguments="x:String" Name="State" />
-      <Variable x:TypeArguments="x:String" Name="MyState" />
+      <Variable x:TypeArguments="x:String" Name="str_Name" />
+      <Variable x:TypeArguments="x:String" Name="str_EmailAddress" />
+      <Variable x:TypeArguments="x:String" Name="str_News" />
+      <Variable x:TypeArguments="x:String" Name="str_CasesStats" />
+      <Variable x:TypeArguments="x:String" Name="str_TotalCases" />
+      <Variable x:TypeArguments="x:String" Name="str_State" />
+      <Variable x:TypeArguments="x:String" Name="str_MyState" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -75,6 +75,7 @@
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
         <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,104.5</av:PointCollection>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
@@ -88,20 +89,12 @@
           <av:PointCollection x:Key="ConnectorLocation">300,245.5 300,294.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetUserInput workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="GetUserInput.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="1.2 - Invoke GetUserInput workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="GetUserInput.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <OutArgument x:TypeArguments="x:String" x:Key="out_Name">
-            <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="Name" />
-          </OutArgument>
-          <OutArgument x:TypeArguments="x:String" x:Key="out_EmailAddress">
-            <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="EmailAddress" />
-          </OutArgument>
-          <OutArgument x:TypeArguments="x:String" x:Key="out_State">
-            <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="State" />
-          </OutArgument>
-          <OutArgument x:TypeArguments="x:String" x:Key="out_MyState">
-            <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="MyState" />
-          </OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_Name">[str_Name]</OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_EmailAddress">[str_EmailAddress]</OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_State">[str_State]</OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_MyState">[str_MyState]</OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -118,20 +111,12 @@
               <av:PointCollection x:Key="ConnectorLocation">300,345.5 300,384.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ExtractStatsCovid workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="ExtractStatsCovid.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="1.3 - Invoke ExtractStatsCovid workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="ExtractStatsCovid.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_News">
-                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="News" />
-              </OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_CasesStats">
-                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="CasesStats" />
-              </OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_TotalCases">
-                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="TotalCases" />
-              </OutArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_State">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="State" />
-              </InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_News">[str_News]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_CasesStats">[str_CasesStats]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_TotalCases">[str_TotalCases]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_State">[str_State]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -148,26 +133,14 @@
                   <av:PointCollection x:Key="ConnectorLocation">300,435.5 300,484.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SendOutlookEmail workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="SendOutlookEmail.xaml">
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="1.4 - Invoke SendOutlookEmail workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="SendOutlookEmail.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_News">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="News" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_Name">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Name" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_TotalCases">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TotalCases" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_CasesStats">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="CasesStats" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_EmailAddress">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="EmailAddress" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_MyState">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="MyState" />
-                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_News">[str_News]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Name">[str_Name]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_TotalCases">[str_TotalCases]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_CasesStats">[str_CasesStats]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_EmailAddress">[str_EmailAddress]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_MyState">[str_MyState]</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -183,7 +156,7 @@
                       <av:Size x:Key="ShapeSize">200,51</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message CovidDemo end" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;CovidDemo is Finished&quot;]">
+                  <ui:LogMessage DisplayName="1.5 - Log Message CovidDemo end" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;CovidDemo is Finished&quot;]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -208,7 +181,7 @@
           <av:PointCollection x:Key="ConnectorLocation">300,155.5 300,194.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:LogMessage DisplayName="Log Message CovidDemo start" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Starting CovidDemo&quot;]">
+      <ui:LogMessage DisplayName="1.1 - Log Message CovidDemo start" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Starting CovidDemo&quot;]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>

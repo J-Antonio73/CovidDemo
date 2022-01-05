@@ -1,6 +1,6 @@
 {
   "name": "CovidDemo",
-  "description": "Blank Process",
+  "description": "A process extracts stats from covid19 with news in state that the user typed, also take a screenshot of stats in browser and generate a report that was send to email that the user typed.",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.11.4]",

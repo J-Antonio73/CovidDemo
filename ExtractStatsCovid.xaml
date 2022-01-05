@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>656,3395</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>640,1329</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ExtractStatsCovid_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -74,7 +74,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="pendiente&#xA;&#xA;&#xA;" DisplayName="ExtractStatsCovid" sap:VirtualizedContainerService.HintSize="632,3330" sap2010:WorkflowViewState.IdRef="Sequence_28">
+  <Sequence sap2010:Annotation.AnnotationText="Description:&#xA;1.- Extract data of covid19 from state that user typed(Total cases, Fatal cases, Active cases).&#xA;2.- Extract recent news of covid19.&#xA;3.- Take a screenshot of the data.&#xA;&#xA;Pre-conditions:The user typed the corresponding data(State).&#xA;&#xA;&#xA;Variables:&#xA;- dt_CasesDT: This variable contains the data that was extracted(Total cases, Active cases, Fatal cases).&#xA;- dt_NewsDT: This contains the news of covid19 that was extracted.&#xA;&#xA;Arguments:&#xA;- out_News: This argument contains news of covid19 that was extracted in string format.&#xA;- out_CasesStats: This argument contains the actives cases and fatal cases data that was extracted in string format.&#xA;- out_TotalCases: This argument contains the total cases of covid19 that was extracted in string format.&#xA;- in_State: This argument contains the state that  the user typed.&#xA;&#xA;" DisplayName="1.1 - ExtractStatsCovid" sap:VirtualizedContainerService.HintSize="476,1264" sap2010:WorkflowViewState.IdRef="Sequence_28">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_CasesDT" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_NewsDT" />
@@ -86,7 +86,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message ExtractStatsCovid start" sap:VirtualizedContainerService.HintSize="590,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Trace" Message="[&quot;Starting Extact stats&quot;]">
+    <ui:LogMessage DisplayName="1.2 - Log Message ExtractStatsCovid start" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Trace" Message="[&quot;Starting 1.1 - ExtractStatsCovid&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -94,24 +94,24 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="590,2904" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+    <TryCatch DisplayName="1.3 - Try Catch" sap:VirtualizedContainerService.HintSize="434,538" sap2010:WorkflowViewState.IdRef="TryCatch_3">
       <TryCatch.Try>
-        <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Open Browser to Extract Data" sap:VirtualizedContainerService.HintSize="552,2677" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" Url="[&quot;https://bing.com/covid/local/&quot;+in_State]">
+        <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="1.4 - Open Browser to Extract Data" sap:VirtualizedContainerService.HintSize="467,1818" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" Url="[&quot;https://bing.com/covid/local/&quot;+in_State]">
           <ui:OpenBrowser.Body>
             <ActivityAction x:TypeArguments="x:Object">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="518,2576" sap2010:WorkflowViewState.IdRef="Sequence_26">
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1717" sap2010:WorkflowViewState.IdRef="Sequence_26">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="476,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="476,91" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Start to get data&quot;]" />
-                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Total Cases" sap:VirtualizedContainerService.HintSize="476,106" sap2010:WorkflowViewState.IdRef="GetValue_3">
+                <Delay DisplayName="1.5 Delay" Duration="00:00:06" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                <ui:LogMessage DisplayName="1.6 - Log Message starting extract data" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Start to get data&quot;]" />
+                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="1.7 - Get Total Cases" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_3">
                   <ui:GetValue.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5ac93acd-1700-4adb-a485-50133a3e82a5" InformativeScreenshot="dc4d47ea4bd2983a3e73703d83472182" Selector="&lt;html app='msedge.exe' title='* Mapa de seguimiento en directo de Microsoft Bing' /&gt;&lt;webctrl tag='DIV' idx='1885' /&gt;">
                       <ui:Target.TimeoutMS>
@@ -126,68 +126,18 @@
                     <OutArgument x:TypeArguments="x:String">[out_TotalCases]</OutArgument>
                   </ui:GetValue.Value>
                 </ui:GetValue>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="476,91" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Get Total Cases, Completed&quot;]" />
-                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="476,51" sap2010:WorkflowViewState.IdRef="CommentOut_2">
-                  <ui:CommentOut.Body>
-                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="518,528" sap2010:WorkflowViewState.IdRef="Sequence_21">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="Cases Stats Data Scraping" sap:VirtualizedContainerService.HintSize="476,436" sap2010:WorkflowViewState.IdRef="Sequence_20">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser 'Coronavir Page'" sap:VirtualizedContainerService.HintSize="434,344" sap2010:WorkflowViewState.IdRef="BrowserScope_6" InformativeScreenshot="70b62b774da3d0de0b71c92943c455fa" Selector="&lt;html app='msedge.exe' title='* Mapa de seguimiento en directo de Microsoft Bing' /&gt;">
-                          <ui:BrowserScope.Body>
-                            <ActivityAction x:TypeArguments="x:Object">
-                              <ActivityAction.Argument>
-                                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
-                              </ActivityAction.Argument>
-                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_19">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[dt_CasesDT]" DisplayName="Extract Structured Data 'DIV'" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Case Stats' attr='text'&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='5' /&gt;&lt;webctrl tag='h2' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ExtractData_6" MaxNumberOfResults="100" SimulateClick="True">
-                                  <ui:ExtractData.Target>
-                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="da9cec47-6ca4-4913-b4b9-3dc8e7474dab" InformativeScreenshot="039c5412764fdb792a70bd46046e2414" Selector="&lt;webctrl aria-role='complementary' tag='DIV' /&gt;" WaitForReady="COMPLETE">
-                                      <ui:Target.TimeoutMS>
-                                        <InArgument x:TypeArguments="x:Int32" />
-                                      </ui:Target.TimeoutMS>
-                                    </ui:Target>
-                                  </ui:ExtractData.Target>
-                                </ui:ExtractData>
-                              </Sequence>
-                            </ActivityAction>
-                          </ui:BrowserScope.Body>
-                        </ui:BrowserScope>
-                      </Sequence>
-                    </Sequence>
-                  </ui:CommentOut.Body>
+                <ui:LogMessage DisplayName="1.8 - Log Message extract total cases" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;1.7 - Get Total Cases, Completed&quot;]" />
+                <Sequence DisplayName="1.9 - Cases Stats Data Scraping" sap:VirtualizedContainerService.HintSize="334,66" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+                  </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                </ui:CommentOut>
-                <Sequence DisplayName="Cases Stats Data Scraping" sap:VirtualizedContainerService.HintSize="476,436" sap2010:WorkflowViewState.IdRef="Sequence_23">
-                  <Sequence.Variables>
-                    <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
-                  </Sequence.Variables>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser 'Coronavir Page'" sap:VirtualizedContainerService.HintSize="434,344" sap2010:WorkflowViewState.IdRef="BrowserScope_7" InformativeScreenshot="720a095558bca5de40f38ce24428e7bb" Selector="&lt;html app='msedge.exe' title='* Mapa de seguimiento en directo de Microsoft Bing' /&gt;">
+                  <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="1.9.1 - Attach Browser 'Coronavir Page'" sap:VirtualizedContainerService.HintSize="434,344" sap2010:WorkflowViewState.IdRef="BrowserScope_7" InformativeScreenshot="720a095558bca5de40f38ce24428e7bb" Selector="&lt;html app='msedge.exe' title='* Mapa de seguimiento en directo de Microsoft Bing' /&gt;">
                     <ui:BrowserScope.Body>
                       <ActivityAction x:TypeArguments="x:Object">
                         <ActivityAction.Argument>
@@ -199,7 +149,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[dt_CasesDT]" DisplayName="Extract Structured Data 'DIV'" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Tipos de casos:' attr='text'&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='5' /&gt;&lt;webctrl tag='h2' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ExtractData_7" MaxNumberOfResults="100" SimulateClick="True">
+                          <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[dt_CasesDT]" DisplayName="1.9.2 - Extract Cases Stats" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Tipos de casos:' attr='text'&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='5' /&gt;&lt;webctrl tag='h2' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ExtractData_7" MaxNumberOfResults="100" SimulateClick="True">
                             <ui:ExtractData.Target>
                               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a4ef40b4-bacc-4670-b572-3c1876b2bc00" InformativeScreenshot="8845bfbbf47ee5615ee44e7a24a83b3a" Selector="&lt;webctrl aria-role='complementary' tag='DIV' /&gt;" WaitForReady="COMPLETE">
                                 <ui:Target.TimeoutMS>
@@ -213,16 +163,30 @@
                     </ui:BrowserScope.Body>
                   </ui:BrowserScope>
                 </Sequence>
-                <ui:OutputDataTable DataTable="[dt_CasesDT]" DisplayName="Convert CasesDT to String" sap:VirtualizedContainerService.HintSize="476,79" sap2010:WorkflowViewState.IdRef="OutputDataTable_5" Text="[out_CasesStats]" />
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="476,91" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;Cases Stats Scraping and convert to String, Completed&quot;]" />
-                <Sequence DisplayName="News Data Scraping" sap:VirtualizedContainerService.HintSize="476,436" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                <ui:OutputDataTable DataTable="[dt_CasesDT]" DisplayName="1.10 - Convert CasesDT to String" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="OutputDataTable_5" Text="[out_CasesStats]">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:OutputDataTable>
+                <ui:LogMessage DisplayName="1.11 - Log Message scraping cases stats" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;1.9 - Cases Stats Data Scraping and 1.10 - Convert CasesDT to String, Completed&quot;]">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser 'Coronavir Page'" sap:VirtualizedContainerService.HintSize="434,344" sap2010:WorkflowViewState.IdRef="BrowserScope_8" InformativeScreenshot="151a7431fcdae489882828e226b5ad02" Selector="&lt;html app='msedge.exe' title='* Mapa de seguimiento en directo de Microsoft Bing' /&gt;">
+                </ui:LogMessage>
+                <Sequence DisplayName="1.12 - News Data Scraping" sap:VirtualizedContainerService.HintSize="334,66" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="1.12.1 Attach Browser 'Coronavir Page'" sap:VirtualizedContainerService.HintSize="434,344" sap2010:WorkflowViewState.IdRef="BrowserScope_8" InformativeScreenshot="151a7431fcdae489882828e226b5ad02" Selector="&lt;html app='msedge.exe' title='* Mapa de seguimiento en directo de Microsoft Bing' /&gt;">
                     <ui:BrowserScope.Body>
                       <ActivityAction x:TypeArguments="x:Object">
                         <ActivityAction.Argument>
@@ -234,7 +198,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[dt_NewsDT]" DisplayName="Extract Structured Data 'DIV'" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Noticias' attr='text' name2=' url' attr2='href'&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='3' /&gt;&lt;webctrl tag='a' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ExtractData_8" MaxNumberOfResults="100" SimulateClick="True">
+                          <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[dt_NewsDT]" DisplayName="1.12.2 - Extract News" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Noticias' attr='text' name2=' url' attr2='href'&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='3' /&gt;&lt;webctrl tag='a' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ExtractData_8" MaxNumberOfResults="100" SimulateClick="True">
                             <ui:ExtractData.Target>
                               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="037e3c6d-fbde-4cb5-b9db-418ed73a57ac" InformativeScreenshot="db4c692d43251247d50912a48d8dc271" Selector="&lt;webctrl aria-role='complementary' tag='DIV' /&gt;" WaitForReady="COMPLETE">
                                 <ui:Target.TimeoutMS>
@@ -248,9 +212,9 @@
                     </ui:BrowserScope.Body>
                   </ui:BrowserScope>
                 </Sequence>
-                <ui:OutputDataTable DataTable="[dt_NewsDT]" DisplayName="Convert NewsDT to String" sap:VirtualizedContainerService.HintSize="476,79" sap2010:WorkflowViewState.IdRef="OutputDataTable_6" Text="[out_News]" />
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="476,91" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;News Scraping and convert to String, Completed&quot;]" />
-                <ui:TakeScreenshot WaitBefore="{x:Null}" DisplayName="Take Screenshot  from page" sap:VirtualizedContainerService.HintSize="476,106" sap2010:WorkflowViewState.IdRef="TakeScreenshot_2" Screenshot="[Screenshot]">
+                <ui:OutputDataTable DataTable="[dt_NewsDT]" DisplayName="1.13 - Convert NewsDT to String" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="OutputDataTable_6" Text="[out_News]" />
+                <ui:LogMessage DisplayName="1.14 - Log Message scraping news" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;1.12 - News Data Scraping and  1.13 - Convert NewsDT to String, Completed&quot;]" />
+                <ui:TakeScreenshot WaitBefore="{x:Null}" DisplayName="1.15 - Take Screenshot of the statas" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="TakeScreenshot_2" Screenshot="[Screenshot]">
                   <ui:TakeScreenshot.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fee82c38-87e4-4cf2-a32b-be7a398ae6ca" InformativeScreenshot="58f29df16aa1a95da0bda2a16fe36fd0" Selector="&lt;webctrl id='labelgl' tag='CANVAS' /&gt;">
                       <ui:Target.TimeoutMS>
@@ -262,9 +226,9 @@
                     </ui:Target>
                   </ui:TakeScreenshot.Target>
                 </ui:TakeScreenshot>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="476,91" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;Take shceenshot is Completed&quot;]" />
-                <ui:SaveImage DisplayName="Save Screenshot" FileName="ScreenshotOfStats.png" sap:VirtualizedContainerService.HintSize="476,132" sap2010:WorkflowViewState.IdRef="SaveImage_2" Image="[Screenshot]" />
-                <ui:CloseTab Browser="{x:Null}" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="476,22" sap2010:WorkflowViewState.IdRef="CloseTab_2" />
+                <ui:LogMessage DisplayName="1.16 - Log Message Screenshot taked successfully " sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;1.15 - Take Screenshot of the statas, Completed&quot;]" />
+                <ui:SaveImage DisplayName="1.17 Save Screenshot" FileName="ScreenshotOfStats.png" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="SaveImage_2" Image="[Screenshot]" />
+                <ui:CloseTab Browser="{x:Null}" DisplayName="1.18 Close Tab" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="CloseTab_2" />
               </Sequence>
             </ActivityAction>
           </ui:OpenBrowser.Body>
@@ -277,10 +241,10 @@
         </ui:OpenBrowser>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="556,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,376" sap2010:WorkflowViewState.IdRef="Catch`1_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -288,19 +252,19 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="376,307" sap2010:WorkflowViewState.IdRef="Sequence_27">
+            <Sequence DisplayName="1.19 - Catch Block" sap:VirtualizedContainerService.HintSize="376,307" sap2010:WorkflowViewState.IdRef="Sequence_27">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,84" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Lo sentimos, ocurrió un error al extraer las estadisticas del reporte&quot;]" />
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Error" Message="[&quot;Extract Data fail&quot;]" />
+              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="1.19.1 Error Message Box" sap:VirtualizedContainerService.HintSize="334,84" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Lo sentimos, ocurrió un error al extraer las estadisticas del reporte&quot;]" />
+              <ui:LogMessage DisplayName="1.19.2 Error Log Message  " sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Error" Message="[&quot;1.4 - Open Browser to Extract Data fail&quot;]" />
             </Sequence>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="590,91" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Info" Message="[&quot;Extract Data is Finished&quot;]" />
+    <ui:LogMessage DisplayName="1.20 - Log Message data extracted successfully " sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Trace" Message="[&quot;Finishing 1.1 - ExtractStatsCovid&quot;]" />
   </Sequence>
 </Activity>
